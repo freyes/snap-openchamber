@@ -14,7 +14,12 @@ description: |
   devices or step away.
 
 grade: stable
-confinement: classic
+confinement: strict
+
+plugs:
+  network:
+  network-bind:
+  home:
 
 contact: https://github.com/openchamber/openchamber
 issues: https://github.com/openchamber/openchamber/issues

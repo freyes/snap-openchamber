@@ -16,8 +16,8 @@ if [ -z "$SNAP_FILE" ]; then
   fi
 fi
 
-echo "==> Installing openchamber snap (--classic --dangerous)"
-sudo snap install --classic --dangerous "$SNAP_FILE"
+echo "==> Installing openchamber snap (--dangerous)"
+sudo snap install --dangerous "$SNAP_FILE"
 
 echo "==> Checking openchamber --version"
 openchamber --version

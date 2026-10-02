@@ -24,7 +24,7 @@ This produces `openchamber_2.0.3_amd64.snap`.
 ## Install
 
 ```bash
-sudo snap install --classic --dangerous ./openchamber_2.0.3_amd64.snap
+sudo snap install --dangerous ./openchamber_2.0.3_amd64.snap
 ```
 
 NOTE: The `--dangerous` flag is required because this is a locally built snap, not one
