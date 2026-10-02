@@ -34,6 +34,7 @@ apps:
     command: bin/openchamber
     environment:
       PATH: $SNAP/bin:$SNAP/usr/bin:$PATH
+      OPENCODE_SKIP_START: "true"
 
 parts:
   node-runtime:
