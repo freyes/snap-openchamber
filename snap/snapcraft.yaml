@@ -49,6 +49,8 @@ parts:
     source-type: tar
     build-snaps:
       - node/22/stable
+    stage-snaps:
+      - opencode/latest/stable
     build-packages:
       - python3
       - make
