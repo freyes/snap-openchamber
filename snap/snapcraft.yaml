@@ -16,11 +16,6 @@ description: |
 grade: stable
 confinement: strict
 
-plugs:
-  network:
-  network-bind:
-  home:
-
 contact: https://github.com/openchamber/openchamber
 issues: https://github.com/openchamber/openchamber/issues
 source-code: https://github.com/openchamber/openchamber
@@ -32,6 +27,10 @@ platforms:
 apps:
   openchamber:
     command: bin/openchamber
+    plugs:
+      - network
+      - network-bind
+      - home
     environment:
       PATH: $SNAP/bin:$SNAP/usr/bin:$PATH
       OPENCODE_SKIP_START: "true"
