@@ -13,17 +13,21 @@ jobs:
     timeout-minutes: 30
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Download snap artifact
+        uses: dawidd6/action-download-artifact@v9
+        with:
+          workflow: build-and-test.yml
+          run_id: ${{ github.event.workflow_run.id }}
+          name: openchamber-snap
 
-      - name: Build snap
-        id: build
-        uses: canonical/action-build@v1.3.0
+      - name: Find snap file
+        id: snap
+        run: echo "file=$(ls openchamber_*.snap)" >> "$GITHUB_OUTPUT"
 
       - name: Publish snap
         uses: snapcore/action-publish@v1
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
         with:
-          snap: ${{ steps.build.outputs.snap }}
+          snap: ${{ steps.snap.outputs.file }}
           release: edge
