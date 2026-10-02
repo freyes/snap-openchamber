@@ -1,6 +1,6 @@
 name: openchamber
 base: core24
-version: '2.0.3'
+version: '1.24.2'
 title: OpenChamber
 summary: Web interface for OpenCode
 license: MIT
@@ -45,7 +45,7 @@ parts:
     plugin: npm
     after:
       - node-runtime
-    source: https://registry.npmjs.org/@openchamber/web/-/web-2.0.3.tgz
+    source: https://registry.npmjs.org/@openchamber/web/-/web-1.24.2.tgz
     source-type: tar
     build-snaps:
       - node/22/stable
