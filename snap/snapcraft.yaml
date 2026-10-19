@@ -14,7 +14,7 @@ description: |
   devices or step away.
 
 grade: stable
-confinement: strict
+confinement: classic
 
 contact: https://github.com/openchamber/openchamber
 issues: https://github.com/openchamber/openchamber/issues
@@ -27,10 +27,6 @@ platforms:
 apps:
   openchamber:
     command: bin/openchamber
-    plugs:
-      - network
-      - network-bind
-      - home
     environment:
       PATH: $SNAP/bin:$SNAP/usr/bin:$PATH
       OPENCODE_SKIP_START: "true"
