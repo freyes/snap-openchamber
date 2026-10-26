@@ -1,4 +1,4 @@
-name: Publish to Snap Store
+name: Publish Snap
 
 on:
   workflow_run:
@@ -31,7 +31,17 @@ jobs:
           path: ${{ steps.snap.outputs.file }}
           if-no-files-found: error
 
-      - name: Publish snap
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ github.event.workflow_run.head_sha }}
+          name: build-${{ github.event.workflow_run.head_sha }}
+          files: ${{ steps.snap.outputs.file }}
+          prerelease: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish snap to Snap Store
         uses: snapcore/action-publish@v1
         env:
           SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
