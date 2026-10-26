@@ -24,6 +24,13 @@ jobs:
         id: snap
         run: echo "file=$(ls openchamber_*.snap)" >> "$GITHUB_OUTPUT"
 
+      - name: Upload snap artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: openchamber-snap
+          path: ${{ steps.snap.outputs.file }}
+          if-no-files-found: error
+
       - name: Publish snap
         uses: snapcore/action-publish@v1
         env:
